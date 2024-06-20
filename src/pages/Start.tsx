@@ -7,9 +7,10 @@ import { CircleHelp } from "lucide-react";
 const Start = () => {
   return (
     <div className="container h-screen flex flex-col justify-center items-center gap-16 font-mono relative">
-      <h1 className="text-5xl mb-8 font-bold text-neutral-700">
-        Imaginary Trip Itinerary
-      </h1>
+      <div className="text-center space-y-4 text-neutral-700">
+        <h1 className="text-6xl font-bold">夢の旅</h1>
+        <p className="tracking-widest text-lg">ゆのたび</p>
+      </div>
       <div className="flex flex-col gap-16">
         <Button size={"lg"} className="text-base">
           新しい部屋を作る
