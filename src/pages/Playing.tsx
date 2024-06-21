@@ -1,31 +1,22 @@
-import React from 'react';
+'use client';
 
-interface Props {
-	preview: boolean;
-}
-
-const InputForm: React.FC = () => {
-	// 入力フォームのコンポーネントの実装
-	return <form>{/* 入力フォームの内容 */}</form>;
-};
-
-const OtherComponent: React.FC = () => {
-	// 別のコンポーネントの実装
-	return <div>{/* 別のコンポーネントの内容 */}</div>;
-};
-
-const Playing: React.FC<Props> = ({ preview }) => {
+import PromptForm from '@/components/PromptForm';
+export function Playing() {
 	return (
-		<div>
-			{preview ? (
-				// 入力フォームを表示するコンポーネント
-				<InputForm />
-			) : (
-				// 別のコンポーネントを表示するコンポーネント
-				<OtherComponent />
-			)}
-		</div>
+		<>
+			<div className="h-full w-full">
+				<div className="m-6">
+					<div className="flex items-center justify-center">
+						<div className="w-1/2"></div>
+						<div className="w-1/2 flex items-center justify-center">
+							{/* プロンプトフォームコンポーネント */}
+							<PromptForm />
+						</div>
+					</div>
+				</div>
+			</div>
+		</>
 	);
-};
+}
 
 export default Playing;
