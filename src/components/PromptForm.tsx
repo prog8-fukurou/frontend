@@ -43,7 +43,7 @@ export function PromptForm(props: any) {
 							<FormItem>
 								<FormLabel>旅の目的は？</FormLabel>
 								<FormControl>
-									<Input placeholder="" {...field} />
+									<Input placeholder="例) グルメ、レジャー、癒し、冒険..." {...field} />
 								</FormControl>
 								<FormMessage />
 							</FormItem>
@@ -102,7 +102,7 @@ export function PromptForm(props: any) {
 							<FormItem>
 								<FormLabel>なにを持っていく？</FormLabel>
 								<FormControl>
-									<Input placeholder="" {...field} />
+									<Input placeholder="例) パスポート、スマホ、充電器..." {...field} />
 								</FormControl>
 								<FormMessage />
 							</FormItem>
