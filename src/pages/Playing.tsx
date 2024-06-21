@@ -32,7 +32,7 @@ export const Progress = (props: { time: any; color: string }) => {
 					strokeDashoffset={strokeDashoffset}
 					values={props.time}
 				/>
-				<text x={(size + 2) / 2} y={63} writingMode={'tb'} fill={props.color} fontSize={10}>
+				<text x={(size + 1) / 2} y={(size - 25) / 2} width={50} writingMode={'tb'} fill={props.color} fontSize={10}>
 					{Math.floor(props.time / 60)
 						.toString()
 						.padStart(2, '0')}
