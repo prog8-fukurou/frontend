@@ -18,25 +18,21 @@ const formSchema = z.object({
 	belongings: z.string().optional(),
 });
 
-export function PromptForm() {
-	// ...
-	// 1. Define your form.
+export function PromptForm(props: any) {
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
 			purpose: '',
 			category: '',
 			overnight: '',
-			backgroundColor: '#0ea5e9',
+			backgroundColor: '#0369A1',
 			belongings: '',
 		},
 	});
 
 	// 2. Define a submit handler.
 	function onSubmit(values: z.infer<typeof formSchema>) {
-		// Do something with the form values.
-		// ✅ This will be type-safe and validated.
-		console.log(values);
+		props.changePrompt(values);
 	}
 	return (
 		<Card className="w-[500px] p-6">
@@ -114,7 +110,7 @@ export function PromptForm() {
 							</FormItem>
 						)}
 					/>
-					<Button type="submit" className="text-white bg-sky-500 w-full">
+					<Button type="submit" className="text-white bg-sky-700 w-full">
 						生成する
 					</Button>
 				</form>
