@@ -1,3 +1,5 @@
+import { Button } from '@/components/ui/button';
+import { ChevronLeft } from 'lucide-react';
 import PromptForm from '@/components/PromptForm';
 import { useState, useEffect } from 'react';
 
@@ -72,6 +74,7 @@ export function Playing() {
 				console.error('Error:', error);
 			});
 	};
+
 	return (
 		<>
 			<div className="h-screen w-screen overflow-hidden">
@@ -83,12 +86,10 @@ export function Playing() {
 							<>
 								<div className="flex w-full m-12">
 									<div className="w-1/3">
-										<button onClick={changePreview} className="flex">
-											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-												<path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-											</svg>
+										<Button onClick={changePreview} className="text-white bg-sky-700">
+											<ChevronLeft />
 											<span className="ml-3">フォーム入力に戻る</span>
-										</button>
+										</Button>
 									</div>
 									<div className="w-1/3 text-center font-bold text-4xl text-sky-700">
 										{Math.floor(time / 60)
