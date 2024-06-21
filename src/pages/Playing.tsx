@@ -57,7 +57,7 @@ export function Playing() {
 					<div className="lg:flex items-center justify-center">
 						<div className="w-full lg:w-1/2 flex items-center justify-center p-3 text-neutral-700">
 							<div className="lg:w-[40rem]">
-								<div className="text-3xl font-bold">個性あふれる架空旅行のしおりを生成してみよう！</div>
+								<div className="text-3xl font-bold tracking-wider">個性あふれる架空旅行のしおりを生成してみよう！</div>
 								<div className="mt-6 ml-12 text-lg text-start">
 									<p>すべての項目を入力しなくてOK！</p>
 									<p>好きなところを１つ以上入れてね</p>
