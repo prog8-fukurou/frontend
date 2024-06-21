@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 
 export const Progress = (props: { time: any; color: string }) => {
 	// SVGの描画サイズ
-	const size = 150;
+	const size = 60;
 	// 現在の進捗
 	const progressPercent = props.time;
 	// 円の半径
@@ -18,6 +18,7 @@ export const Progress = (props: { time: any; color: string }) => {
 		<div className="w-full h-full">
 			<svg
 				viewBox={`0 0 ${size} ${size}`}
+				className="w-44 h-44 md:w-56 md:h-56 m-12"
 				style={{ transform: 'rotate(-90deg)' }} // そのままだと3時の方向が起点になってしまうので-90°回転させてます
 			>
 				<circle
@@ -77,7 +78,7 @@ export function Playing() {
 
 	return (
 		<>
-			<div className="h-screen w-screen overflow-hidden">
+			<div className="md:h-screen w-screen md:overflow-hidden p-6">
 				{time < 0 ? (
 					<>ゲーム終了時の画面</>
 				) : (
@@ -102,7 +103,7 @@ export function Playing() {
 								<div className="w-full flex items-center justify-center">{prompt}</div>
 							</>
 						) : (
-							<div className="w-full h-full m-6 flex items-center justify-center">
+							<div className="w-full h-full flex items-center justify-center">
 								<div className="lg:flex items-center justify-center">
 									<div className="w-full lg:w-1/2 flex items-center justify-center p-3 text-neutral-700">
 										<div className="lg:w-[40rem]">
@@ -111,7 +112,15 @@ export function Playing() {
 												<p>すべての項目を入力しなくてOK！</p>
 												<p>好きなところを１つ以上入れてね</p>
 											</div>
-											<Progress time={time} color={primaryColor} />
+											<div className="w-full h-full hidden md:flex items-center justify-center">
+												<Progress time={time} color={primaryColor} />
+											</div>
+											<div className="block md:hidden w-full m-6 text-center font-bold text-4xl text-sky-700">
+												{Math.floor(time / 60)
+													.toString()
+													.padStart(2, '0')}
+												:{time % 60 < 10 ? `0${time % 60}` : time % 60}
+											</div>
 											<button onClick={changePreview}>デバッグ用</button>
 										</div>
 									</div>
