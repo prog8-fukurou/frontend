@@ -25,7 +25,7 @@ export function PromptForm(props: any) {
 			purpose: '',
 			category: '',
 			overnight: '',
-			backgroundColor: '#0369A1',
+			backgroundColor: props.color,
 			belongings: '',
 		},
 	});

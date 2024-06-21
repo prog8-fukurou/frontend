@@ -3,7 +3,7 @@
 import PromptForm from '@/components/PromptForm';
 import { useState, useEffect } from 'react';
 
-export const Progress = (props: { time: any }) => {
+export const Progress = (props: { time: any; color: string }) => {
 	// SVGの描画サイズ
 	const size = 150;
 	// 現在の進捗
@@ -24,7 +24,7 @@ export const Progress = (props: { time: any }) => {
 					r={radius}
 					cx={size / 2}
 					cy={size / 2}
-					stroke="#0369A1"
+					stroke={props.color}
 					strokeWidth="4"
 					fill="#ffffff"
 					strokeLinecap="round"
@@ -32,7 +32,7 @@ export const Progress = (props: { time: any }) => {
 					strokeDashoffset={strokeDashoffset}
 					values={props.time}
 				/>
-				<text x={(size + 2) / 2} y={63} writingMode={'tb'} fill="#0369A1" fontSize={10}>
+				<text x={(size + 2) / 2} y={63} writingMode={'tb'} fill={props.color} fontSize={10}>
 					{Math.floor(props.time / 60)
 						.toString()
 						.padStart(2, '0')}
@@ -44,9 +44,10 @@ export const Progress = (props: { time: any }) => {
 };
 
 export function Playing() {
-	const [time, setTime] = useState(10);
+	const [time, setTime] = useState(60);
 	const [preview, setPreview] = useState(false);
 	const [prompt, setPrompt] = useState();
+	const primaryColor = '#0369A1';
 	useEffect(() => {
 		const interval = setInterval(() => {
 			setTime((prevTime) => (prevTime > 0 ? prevTime - 1 : prevTime));
@@ -91,7 +92,7 @@ export function Playing() {
 											<span className="ml-3">フォーム入力に戻る</span>
 										</button>
 									</div>
-									<div className="w-1/3 text-center font-bold text-4xl">
+									<div className="w-1/3 text-center font-bold text-4xl text-sky-700">
 										{Math.floor(time / 60)
 											.toString()
 											.padStart(2, '0')}
@@ -111,13 +112,13 @@ export function Playing() {
 												<p>すべての項目を入力しなくてOK！</p>
 												<p>好きなところを１つ以上入れてね</p>
 											</div>
-											<Progress time={time} />
+											<Progress time={time} color={primaryColor} />
 											<button onClick={changePreview}>デバッグ用</button>
 										</div>
 									</div>
 									<div className="w-full lg:w-1/2 lg:p-[10rem] flex items-center justify-center">
 										{/* プロンプトフォームコンポーネント */}
-										<PromptForm changePrompt={changePrompt} />
+										<PromptForm changePrompt={changePrompt} color={primaryColor} />
 									</div>
 								</div>
 							</div>
