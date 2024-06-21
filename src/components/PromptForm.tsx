@@ -27,7 +27,7 @@ export function PromptForm() {
 			purpose: '',
 			category: '',
 			overnight: '',
-			backgroundColor: '#14B8A6',
+			backgroundColor: '#0ea5e9',
 			belongings: '',
 		},
 	});
@@ -114,7 +114,7 @@ export function PromptForm() {
 							</FormItem>
 						)}
 					/>
-					<Button type="submit" className="text-white bg-teal-500 w-full">
+					<Button type="submit" className="text-white bg-sky-500 w-full">
 						生成する
 					</Button>
 				</form>
