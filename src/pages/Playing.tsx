@@ -1,5 +1,3 @@
-'use client';
-
 import PromptForm from '@/components/PromptForm';
 import { useState, useEffect } from 'react';
 
