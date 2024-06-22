@@ -33,7 +33,7 @@ export const Progress = (props: { time: any; color: string }) => {
 					strokeDashoffset={strokeDashoffset}
 					values={props.time}
 				/>
-				<text x={(size + 1) / 2} y={(size - 25) / 2} width={50} writingMode={'tb'} fill={props.color} fontSize={10}>
+				<text x={(size + 1) / 2} y={(size - 24) / 2} width={50} writingMode={'tb'} fill={props.color} fontSize={10}>
 					{Math.floor(props.time / 60)
 						.toString()
 						.padStart(2, '0')}
@@ -105,7 +105,7 @@ export function Playing() {
 						) : (
 							<div className="w-full h-full flex items-center justify-center">
 								<div className="lg:flex container items-center justify-center">
-									<div className="w-full lg:w-1/2 flex items-center justify-center p-3 text-neutral-700">
+									<div className="w-full lg:w-1/2 flex items-center justify-center lg:p-3 text-neutral-700">
 										<div className="lg:w-[40rem]">
 											<div className="text-3xl font-bold tracking-wider">個性あふれる架空旅行のしおりを生成してみよう！</div>
 											<div className="mt-6 ml-12 text-lg text-start">
@@ -124,7 +124,7 @@ export function Playing() {
 											<button onClick={changePreview}>デバッグ用</button>
 										</div>
 									</div>
-									<div className="w-full lg:w-1/2 lg:p-[10rem] flex items-center justify-center">
+									<div className="w-full lg:w-1/2 p-6 flex items-center justify-center">
 										{/* プロンプトフォームコンポーネント */}
 										<PromptForm changePrompt={changePrompt} color={primaryColor} />
 									</div>
