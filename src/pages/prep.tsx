@@ -34,11 +34,6 @@ const Prep = () => {
 				</Button>
 				<p className="text-center text-gry-500">制限時間は１分です</p>
 			</div>
-			<Button variant="link" asChild className="text-lg absolute bottom-10 right-10 xl:bottom-20 xl:right-20 2xl:bottom-40">
-				<Link to={'/'}>
-					<CircleHelp className="mr-2 h-4 w-4" />
-				</Link>
-			</Button>
 		</div>
 	);
 };
