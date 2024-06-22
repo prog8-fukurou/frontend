@@ -151,6 +151,8 @@ const Prep = () => {
           </div>
         </div>
       </div>
+
+      {/* ページが変わって最初に表示するダイアログ */}
       <Dialog open={dialog}>
         <DialogContent
           className="sm:max-w-[425px]"
