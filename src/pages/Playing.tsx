@@ -130,7 +130,6 @@ export function Playing() {
 													.padStart(2, '0')}
 												:{time % 60 < 10 ? `0${time % 60}` : time % 60}
 											</div>
-											<button onClick={changePreview}>デバッグ用</button>
 										</div>
 									</div>
 									<div className="w-full lg:w-1/2 p-6 flex items-center justify-center">
