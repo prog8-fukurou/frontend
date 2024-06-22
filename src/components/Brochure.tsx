@@ -5,6 +5,8 @@ interface BrochureProps {
 	trabe_schedule: Array<string>;
 	suggedted_sightseeing_spots: Array<string>;
 	travel_plan_description: string;
+	members: Array<string>;
+	belongings: Array<string>;
 }
 
 const BrochureSchedule = (props: { schedule: string; BorderColor: any }) => {
@@ -47,13 +49,21 @@ export function Brochure(props: BrochureProps) {
 							<div className="border-l-4 pl-4 text-lg font-semibold" style={BorderColor}>
 								メンバー
 							</div>
-							<div className="pl-3 mt-6"></div>
+							<div className="pl-3 mt-6">
+								{props.members.map((member) => {
+									return <div className="my-1">{member}</div>;
+								})}
+							</div>
 						</div>
 						<div className="w-1/2">
 							<div className="border-l-4 pl-4 text-lg font-semibold" style={BorderColor}>
 								持ち物
 							</div>
-							<div className="pl-3 mt-6"></div>
+							<div className="pl-3 mt-6">
+								{props.belongings.map((belonging) => {
+									return <div className="my-1">{belonging}</div>;
+								})}
+							</div>
 						</div>
 					</div>
 				</div>
