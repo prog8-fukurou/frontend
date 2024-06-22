@@ -2,6 +2,7 @@ import { ChevronLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Table, TableBody, TableCell, TableRow } from '@/components/ui/table';
+import { Copy } from 'lucide-react';
 
 const Prep = () => {
 	return (
@@ -19,9 +20,10 @@ const Prep = () => {
 				<div className="w-2/3 text-center font-semibold text-2xl">他のユーザーの参加を待っています... ( N / 4 )</div>
 				<div className="w-1/3 flex items-center">
 					<div className="max-w-96 flex gap-2">
-						<Input type="text" id="roomId" disabled />
+						<Input type="text" id="roomId" readOnly />
 						<Button size={'sm'} className="text-base bg-sky-700">
-							Copy
+							<span className="sr-only">Copy</span>
+							<Copy className="h-4 w-4" />
 						</Button>
 					</div>
 				</div>
