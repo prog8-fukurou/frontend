@@ -69,11 +69,11 @@ export const Vote = () => {
 	};
 
 	return (
-		<div className="flex flex-col gap-3 p-12">
+		<div className="flex flex-col gap-16 container justify-center h-screen">
 			<div className="md:flex items-center justify-center">
 				<div className="w-full md:w-1/4"></div>
 				<div className="w-full md:w-1/2 text-center">
-					<div className="text-xl font-semibold tracking-widest">どのしおりに投票しますか？</div>
+					<div className="text-2xl font-semibold tracking-widest">どのしおりに投票しますか？</div>
 				</div>
 				<div className="w-full text-center mt-6 md:m-0 md:w-1/4 md:text-start font-semibold text-3xl text-sky-700">
 					{Math.floor(time / 60)
@@ -82,17 +82,17 @@ export const Vote = () => {
 					:{time % 60 < 10 ? `0${time % 60}` : time % 60}
 				</div>
 			</div>
-			<div className="w-full flex flex-wrap">
-				<div className="w-1/6 flex items-center justify-center">
-					<Button className="mr-2" onClick={handlePrev}>
+			<div className="w-full flex">
+				<div className=" flex items-center justify-center">
+					<Button className="mr-4 p-2" onClick={handlePrev}>
 						<ChevronLeft />
 					</Button>
 				</div>
-				<div className="w-2/3">
+				<div className="w-full">
 					<Brochure key={currentIndex} base={player_brochures[currentIndex].base} expand={player_brochures[currentIndex].expand} />
 				</div>
-				<div className="w-1/6 flex items-center justify-center">
-					<Button className="ml-2" onClick={handleNext}>
+				<div className=" flex items-center justify-center">
+					<Button className="ml-4 p-2" onClick={handleNext}>
 						<ChevronRight />
 					</Button>
 				</div>
