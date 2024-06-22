@@ -70,12 +70,12 @@ export const Vote = () => {
 
 	return (
 		<div className="flex flex-col gap-3 p-12">
-			<div className="flex items-center justify-center">
-				<div className="w-1/4"></div>
-				<div className="w-1/2 text-center">
+			<div className="md:flex items-center justify-center">
+				<div className="w-full md:w-1/4"></div>
+				<div className="w-full md:w-1/2 text-center">
 					<div className="text-xl font-semibold tracking-widest">どのしおりに投票しますか？</div>
 				</div>
-				<div className="w-1/4 text-start font-semibold text-3xl text-sky-700">
+				<div className="w-full text-center mt-6 md:m-0 md:w-1/4 md:text-start font-semibold text-3xl text-sky-700">
 					{Math.floor(time / 60)
 						.toString()
 						.padStart(2, '0')}
