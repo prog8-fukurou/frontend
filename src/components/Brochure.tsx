@@ -50,8 +50,12 @@ export function Brochure(props: BrochureProps) {
 								メンバー
 							</div>
 							<div className="pl-3 mt-6">
-								{props.members.map((member) => {
-									return <div className="my-1">{member}</div>;
+								{props.members.map((member, index) => {
+									return (
+										<div className="my-1" key={index}>
+											{member}
+										</div>
+									);
 								})}
 							</div>
 						</div>
@@ -60,8 +64,12 @@ export function Brochure(props: BrochureProps) {
 								持ち物
 							</div>
 							<div className="pl-3 mt-6">
-								{props.belongings.map((belonging) => {
-									return <div className="my-1">{belonging}</div>;
+								{props.belongings.map((belonging, index) => {
+									return (
+										<div className="my-1" key={index}>
+											{belonging}
+										</div>
+									);
 								})}
 							</div>
 						</div>
@@ -69,8 +77,8 @@ export function Brochure(props: BrochureProps) {
 				</div>
 				<div className="h-full md:w-1/2 md:border-l-8 p-4">
 					<div>
-						{props.trabe_schedule.map((schedule) => {
-							return <BrochureSchedule schedule={schedule} BorderColor={BorderColor} />;
+						{props.trabe_schedule.map((schedule, index) => {
+							return <BrochureSchedule schedule={schedule} BorderColor={BorderColor} key={index} />;
 						})}
 					</div>
 					<div>
@@ -80,8 +88,8 @@ export function Brochure(props: BrochureProps) {
 							</div>
 						</div>
 						<div className="pl-6 flex flex-wrap">
-							{props.suggedted_sightseeing_spots.map((spot) => {
-								return <BrochureSightseeingSpot spot={spot} />;
+							{props.suggedted_sightseeing_spots.map((spot, index) => {
+								return <BrochureSightseeingSpot spot={spot} key={index} />;
 							})}
 						</div>
 					</div>
