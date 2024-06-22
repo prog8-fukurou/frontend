@@ -36,7 +36,7 @@ export function Brochure(props: BrochureProps) {
 	};
 	return (
 		<>
-			<div className="w-full h-full md:flex items-center justify-center border rounded-md" style={BorderColor}>
+			<div className="w-full h-full md:flex items-center justify-center md:border rounded-md" style={BorderColor}>
 				<div className="h-full md:w-1/2 p-4">
 					<div className="font-bold text-3xl text-center m-6">{props.travel_plan_name}</div>
 					<div className="text-center m-2 text-slate-700">@ {props.travel_place}</div>
