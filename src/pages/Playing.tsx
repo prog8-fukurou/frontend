@@ -15,7 +15,7 @@ export const Progress = (props: { time: any; color: string }) => {
 	// 表示割合
 	const strokeDashoffset = circumference - (progressPercent / 60) * circumference;
 	return (
-		<div className="w-full h-full">
+		<div className="w-full h-full font-mono">
 			<svg
 				viewBox={`0 0 ${size} ${size}`}
 				className="w-44 h-44 lg:w-56 lg:h-56 m-12"
@@ -33,7 +33,7 @@ export const Progress = (props: { time: any; color: string }) => {
 					strokeDashoffset={strokeDashoffset}
 					values={props.time}
 				/>
-				<text x={(size + 1) / 2} y={(size - 24) / 2} width={50} writingMode={'tb'} fill={props.color} fontSize={10}>
+				<text x={(size + 1) / 2} y={(size - 27.5) / 2} width={50} writingMode={'tb'} fill={props.color} fontSize={10}>
 					{Math.floor(props.time / 60)
 						.toString()
 						.padStart(2, '0')}
