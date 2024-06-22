@@ -1,3 +1,4 @@
+import { ChevronLeft } from 'lucide-react';
 import { Label } from '@radix-ui/react-label';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -6,24 +7,28 @@ import { CircleHelp } from 'lucide-react';
 
 const Prep = () => {
 	return (
-		<div className="container h-screen flex flex-col justify-center items-center gap-8 relative">
-			<div className="text-center space-y-4 text-neutral-700">
-				<h1 className="text-3xl font-bold text-left">部屋A</h1>
-				<Button className="absolute top-4 left-0 m-3 taxt-left bg-sky-700">←スタート画面に戻る</Button>
+		<div className="h-screen p-6">
+			<div className="flex w-full m-12">
+				<div className="w-1/3">
+					<Button className="text-white bg-sky-700">
+						<ChevronLeft />
+						<span className="ml-3">フォーム入力に戻る</span>
+					</Button>
+				</div>
+				<div className="w-2/3"></div>
 			</div>
-			<div className="flex flex-col gap-4">
-				<form action="" className="flex mx-auto gap-4 items-end">
-					<div className="grid w-full max-w-sm items-center gap-1.5">
-						<Label htmlFor="roomId">部屋コード</Label>
-						<div className="flex gap-2">
-							<Input type="text" id="roomId" placeholder="部屋コード" />
-							<Button size={'sm'} className="text-base bg-sky-700">
-								Copy
-							</Button>
-						</div>
+			<div className="w-full flex items-center justify-center">
+				<div className="w-2/3 text-center font-semibold text-2xl">参加者を募集しています...</div>
+				<div className="w-1/3 flex items-center">
+					<div className="max-w-96 flex gap-2">
+						<Input type="text" id="roomId" placeholder="部屋コード" />
+						<Button size={'sm'} className="text-base bg-sky-700">
+							Copy
+						</Button>
 					</div>
-				</form>
-
+				</div>
+			</div>
+			<div className="h-full container flex items-center justify-center">
 				<Button size={'lg'} className="text-base bg-sky-700">
 					ゲームスタート
 				</Button>
