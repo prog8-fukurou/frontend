@@ -7,6 +7,7 @@ interface BrochureProps {
 	travel_plan_description: string;
 	members: Array<string>;
 	belongings: Array<string>;
+	image_url: string | null;
 }
 
 const BrochureSchedule = (props: { schedule: string; BorderColor: any }) => {
@@ -41,8 +42,12 @@ export function Brochure(props: BrochureProps) {
 					<div className="font-bold text-3xl text-center m-6">{props.travel_plan_name}</div>
 					<div className="text-center m-2 text-slate-700">@ {props.travel_place}</div>
 					<div className="text-start m-6">{props.travel_plan_description}</div>
-					<div className="m-8 flex items-center justify-center">
-						<img width={256} height={256} />
+					<div className="m-8 flex items-center justify-center h-[256px]">
+						{props.image_url !== null ? (
+							<img src={props.image_url} width={256} height={256} />
+						) : (
+							<div className="w-full h-full border flex items-center justify-center">ここには最後にイメージ画像が挿入されます</div>
+						)}
 					</div>
 					<div className="flex p-8">
 						<div className="w-1/2">
