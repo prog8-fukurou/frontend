@@ -13,18 +13,18 @@ const Start = () => {
   const client_id = uuid();
 
   const handleCreateRoom = () => {
-    const url = `ws://localhost:8000/ws?client_id=${client_id}`;
+    const url = `ws://${process.env.VITE_WS_URL}/ws?client_id=${client_id}`;
     connectWebSocket(url);
-    navigate("/room", { state: { roomId: "", clientId: client_id } });
+    navigate("/prepare", { state: { roomId: "", clientId: client_id } });
   };
 
   const handleEnterRoom: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     const room_id = form.get("roomId") || "";
-    const url = `ws://localhost:8000/ws?client_id=${client_id}&room_id=${room_id}`;
+    const url = `ws://${process.env.VITE_WS_URL}/ws?client_id=${client_id}&room_id=${room_id}`;
     connectWebSocket(url);
-    navigate("room", { state: { roomId: room_id, clientId: client_id } });
+    navigate("/prepare", { state: { roomId: room_id, clientId: client_id } });
   };
   return (
     <div className="container h-screen flex flex-col justify-center items-center gap-16 relative">
@@ -33,7 +33,11 @@ const Start = () => {
         <p className="tracking-widest text-lg">ゆのたび</p>
       </div>
       <div className="flex flex-col gap-16">
-        <Button size={"lg"} className="text-base" onClick={handleCreateRoom}>
+        <Button
+          size={"lg"}
+          className="text-base bg-sky-700"
+          onClick={handleCreateRoom}
+        >
           新しい部屋を作る
         </Button>
         <form
@@ -50,7 +54,9 @@ const Start = () => {
               placeholder="部屋コード"
             />
           </div>
-          <Button type="submit">部屋に入る</Button>
+          <Button type="submit" className="bg-sky-700">
+            部屋に入る
+          </Button>
         </form>
       </div>
       <Button
