@@ -2,6 +2,8 @@ import { Button } from '@/components/ui/button';
 import { ChevronLeft } from 'lucide-react';
 import PromptForm from '@/components/PromptForm';
 import { useState, useEffect } from 'react';
+import TimeUp from '@/components/TimeUp';
+// import { useWebSocket } from '@/WebSocketContext';
 
 export const Progress = (props: { time: any; color: string }) => {
 	// SVGの描画サイズ
@@ -45,6 +47,7 @@ export const Progress = (props: { time: any; color: string }) => {
 };
 
 export function Playing() {
+	// const { sendMessage } = useWebSocket();
 	const [time, setTime] = useState(60);
 	const [preview, setPreview] = useState(false);
 	const [prompt, setPrompt] = useState();
@@ -55,6 +58,13 @@ export function Playing() {
 		}, 1000);
 		return () => clearInterval(interval);
 	}, []);
+
+	// if (time === 0) {
+	// 	return(
+	// 		<TimeUp />
+	// 	)
+	// }
+
 	const changePreview = () => {
 		setPreview(!preview);
 	};
@@ -79,17 +89,17 @@ export function Playing() {
 	return (
 		<>
 			<div className="lg:h-screen w-screen lg:overflow-hidden p-6">
-				{time < 0 ? (
-					<>ゲーム終了時の画面</>
+				{time === 0 ? (
+					<TimeUp />
 				) : (
 					<>
 						{preview ? (
 							<>
 								<div className="flex w-full m-12">
 									<div className="w-1/3">
-										<Button onClick={changePreview} className="text-white bg-sky-700">
+										<Button onClick={changePreview} variant={"link"}>
 											<ChevronLeft />
-											<span className="ml-3">フォーム入力に戻る</span>
+											<span className="ml-2">フォーム入力に戻る</span>
 										</Button>
 									</div>
 									<div className="w-1/3 text-center font-bold text-4xl text-sky-700">
@@ -126,7 +136,7 @@ export function Playing() {
 									</div>
 									<div className="w-full lg:w-1/2 p-6 flex items-center justify-center">
 										{/* プロンプトフォームコンポーネント */}
-										<PromptForm changePrompt={changePrompt} color={primaryColor} />
+										<PromptForm changePrompt={changePrompt} color={primaryColor}  />
 									</div>
 								</div>
 							</div>

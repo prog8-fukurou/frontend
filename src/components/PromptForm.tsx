@@ -28,6 +28,10 @@ export function PromptForm(props: any) {
 		},
 	});
 
+	// if (props.timeUp){
+	// 	form.handleSubmit(onSubmit);
+	// }
+
 	// 2. Define a submit handler.
 	function onSubmit(values: z.infer<typeof formSchema>) {
 		props.changePrompt(values);
