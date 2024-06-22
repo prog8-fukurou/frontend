@@ -46,8 +46,8 @@ const Prep = () => {
 				<div className="w-1/5 flex items-center justify-center">
 					<div>
 						<p className="text-center text-gry-500 mb-3">制限時間は１分です</p>
-						<Button size={'lg'} className="text-base bg-sky-700">
-							ゲームスタート
+						<Button size={'lg'} className="text-base bg-sky-700 tracking-widest">
+							準備OK
 						</Button>
 					</div>
 				</div>
