@@ -4,6 +4,7 @@ export const ComponentTest = () => {
 	return (
 		<div className="container h-screen flex flex-col justify-center items-center gap-16 relative p-8">
 			<Brochure
+				background_color="#0369A1"
 				travel_plan_name="アロエヨーグルトの旅"
 				travel_place="ヨーグルトランド"
 				trabe_schedule={[
