@@ -87,7 +87,7 @@ export function PromptForm(props: any) {
 						name="backgroundColor"
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel>しおりの背景色</FormLabel>
+								<FormLabel>イメージカラー</FormLabel>
 								<FormControl>
 									<Input type="color" {...field} />
 								</FormControl>
