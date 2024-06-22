@@ -18,7 +18,7 @@ export const Progress = (props: { time: any; color: string }) => {
 		<div className="w-full h-full">
 			<svg
 				viewBox={`0 0 ${size} ${size}`}
-				className="w-44 h-44 md:w-56 md:h-56 m-12"
+				className="w-44 h-44 lg:w-56 lg:h-56 m-12"
 				style={{ transform: 'rotate(-90deg)' }} // そのままだと3時の方向が起点になってしまうので-90°回転させてます
 			>
 				<circle
@@ -78,7 +78,7 @@ export function Playing() {
 
 	return (
 		<>
-			<div className="md:h-screen w-screen md:overflow-hidden p-6">
+			<div className="lg:h-screen w-screen lg:overflow-hidden p-6">
 				{time < 0 ? (
 					<>ゲーム終了時の画面</>
 				) : (
@@ -104,7 +104,7 @@ export function Playing() {
 							</>
 						) : (
 							<div className="w-full h-full flex items-center justify-center">
-								<div className="lg:flex items-center justify-center">
+								<div className="lg:flex container items-center justify-center">
 									<div className="w-full lg:w-1/2 flex items-center justify-center p-3 text-neutral-700">
 										<div className="lg:w-[40rem]">
 											<div className="text-3xl font-bold tracking-wider">個性あふれる架空旅行のしおりを生成してみよう！</div>
@@ -112,10 +112,10 @@ export function Playing() {
 												<p>すべての項目を入力しなくてOK！</p>
 												<p>好きなところを１つ以上入れてね</p>
 											</div>
-											<div className="w-full h-full hidden md:flex items-center justify-center">
+											<div className="w-full h-full hidden lg:flex items-center justify-center">
 												<Progress time={time} color={primaryColor} />
 											</div>
-											<div className="block md:hidden w-full m-6 text-center font-bold text-4xl text-sky-700">
+											<div className="block lg:hidden w-full m-6 text-center font-bold text-4xl text-sky-700">
 												{Math.floor(time / 60)
 													.toString()
 													.padStart(2, '0')}
