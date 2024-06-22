@@ -1,10 +1,17 @@
 import { Brochure } from '@/components/Brochure';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export const Vote = () => {
+	const [time, setTime] = useState(60);
 	const [currentIndex, setCurrentIndex] = useState(0);
+	useEffect(() => {
+		const interval = setInterval(() => {
+			setTime((prevTime) => (prevTime > 0 ? prevTime - 1 : prevTime));
+		}, 1000);
+		return () => clearInterval(interval);
+	}, []);
 	const player_brochures = [
 		{
 			base: {
@@ -68,10 +75,11 @@ export const Vote = () => {
 				<div className="w-1/2 text-center">
 					<div className="text-xl font-semibold tracking-widest">どのしおりに投票しますか？</div>
 				</div>
-				<div className="w-1/4">
-					{
-						// タイマーコンポーネントの設置
-					}
+				<div className="w-1/4 text-start font-semibold text-3xl text-sky-700">
+					{Math.floor(time / 60)
+						.toString()
+						.padStart(2, '0')}
+					:{time % 60 < 10 ? `0${time % 60}` : time % 60}
 				</div>
 			</div>
 			<div className="w-full flex flex-wrap">
