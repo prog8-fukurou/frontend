@@ -1,10 +1,17 @@
+import { WebSocketProvider } from "./WebSocketContext";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AppRoutes } from "@/routes";
 
 const router = createBrowserRouter(AppRoutes);
 
 const App = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <WebSocketProvider>
+        <RouterProvider router={router} />
+      </WebSocketProvider>
+    </>
+  );
 };
 
 export default App;
