@@ -1,14 +1,4 @@
-interface BrochureProps {
-	background_color: string;
-	travel_plan_name: string;
-	travel_place: string;
-	trabe_schedule: Array<string>;
-	suggedted_sightseeing_spots: Array<string>;
-	travel_plan_description: string;
-	members: Array<string>;
-	belongings: Array<string>;
-	image_url: string | null;
-}
+import type { BrochureProps } from '../types/Brochure';
 
 const BrochureSchedule = (props: { schedule: string; BorderColor: any }) => {
 	return (
