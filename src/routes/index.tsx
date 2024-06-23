@@ -1,10 +1,14 @@
 import Start from '@/pages/Start';
 import Playing from '@/pages/Playing';
-import ComponentTest from '@/pages/ComponentTest';
+import Vote from '@/pages/Vote';
+import Prep from '@/pages/Prep';
+import MasterWait from '@/pages/MasterWait';
 import { RouteObject } from 'react-router-dom';
 
 export const AppRoutes: RouteObject[] = [
 	{ path: '/', element: <Start /> },
 	{ path: '/playing', element: <Playing /> },
-	{ path: '/debug', element: <ComponentTest /> },
+	{ path: '/vote', element: <Vote /> },
+	{ path: '/master', element: <MasterWait /> },
+	{ path: '/prepare', element: <Prep /> },
 ];
