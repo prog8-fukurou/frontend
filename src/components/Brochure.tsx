@@ -27,8 +27,8 @@ export function Brochure(props: { base: BrochureProps; expand: BrochurePropsExpa
 	};
 	return (
 		<>
-			<div className="w-full h-full md:flex items-center justify-center md:border rounded-md" style={BorderColor}>
-				<div className="h-full md:w-1/2 p-4">
+			<div className="w-full h-full md:flex-row items-center justify-center md:border rounded-md flex flex-col" style={BorderColor}>
+				<div className="h-full md:w-1/2 p-4 w-full">
 					<div className="font-bold text-3xl text-center m-6">{props.base.travel_plan_name}</div>
 					<div className="text-center m-2 text-slate-700">@ {props.base.travel_place}</div>
 					<div className="text-start m-6">{props.base.travel_plan_description}</div>
@@ -40,7 +40,7 @@ export function Brochure(props: { base: BrochureProps; expand: BrochurePropsExpa
 						)}
 					</div>
 					<div className="flex p-8">
-						<div className="w-1/2">
+						<div className="md:w-1/2">
 							<div className="border-l-4 pl-4 text-lg font-semibold" style={BorderColor}>
 								メンバー
 							</div>
@@ -58,7 +58,7 @@ export function Brochure(props: { base: BrochureProps; expand: BrochurePropsExpa
 						</div>
 					</div>
 				</div>
-				<div className="h-full md:w-1/2 md:border-l-8 p-4">
+				<div className="h-full w-full md:w-1/2 md:border-l-8 p-4">
 					<div>
 						{props.base.travel_schedule.map((schedule, index) => {
 							return <BrochureSchedule schedule={schedule} BorderColor={BorderColor} key={index} />;
