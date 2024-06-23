@@ -9,11 +9,26 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Card } from './ui/card';
 
 const formSchema = z.object({
-	purpose: z.string().optional(),
-	category: z.string().optional(),
+	purpose: z
+		.string()
+		.max(30, {
+			message: '30文字以内で入力してください',
+		})
+		.optional(),
+	category: z
+		.string()
+		.max(30, {
+			message: '30文字以内で入力してください',
+		})
+		.optional(),
 	overnight: z.string().optional(),
 	backgroundColor: z.string().optional(),
-	belongings: z.string().optional(),
+	belongings: z
+		.string()
+		.max(30, {
+			message: '30文字以内で入力してください',
+		})
+		.optional(),
 });
 
 export function PromptForm(props: any) {
