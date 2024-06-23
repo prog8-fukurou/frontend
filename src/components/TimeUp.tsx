@@ -1,14 +1,9 @@
 import { Brochure } from '@/components/Brochure';
 import { Button } from '@/components/ui/button';
-// import {
-//   Dialog,
-//   DialogContent,
-//   DialogTitle,
-//   DialogTrigger,
-// } from "@/components/ui/dialog";
 import { BrochureProps, BrochurePropsExpand } from '@/types/Brochure';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { useWebSocket } from '@/WebSocketContext';
 
 const TimeUp = ({ prompts }: { prompts: { base: BrochureProps; expand: BrochurePropsExpand }[] }) => {
 	const [time, setTime] = useState(60);
@@ -28,6 +23,23 @@ const TimeUp = ({ prompts }: { prompts: { base: BrochureProps; expand: BrochureP
 
 	const handleNext = () => {
 		setCurrentIndex((prevIndex) => (prevIndex === player_brochures.length - 1 ? 0 : prevIndex + 1));
+	};
+
+	const sendGameEnd = () => {
+		fetch(`${process.env.VITE_API_URL}`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({}),
+		})
+			.then((response) => response.json())
+			.then((data) => {
+				console.log(data);
+			})
+			.catch((error) => {
+				console.error('Error:', error);
+			});
 	};
 
 	return (
