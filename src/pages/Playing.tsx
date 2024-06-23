@@ -1,7 +1,9 @@
 import { Button } from '@/components/ui/button';
 import { ChevronLeft } from 'lucide-react';
 import PromptForm from '@/components/PromptForm';
+import { Brochure } from '@/components/Brochure';
 import { useState, useEffect } from 'react';
+import type { BrochureProps, BrochurePropsExpand } from '../types/Brochure';
 
 export const Progress = (props: { time: any; color: string }) => {
 	// SVGの描画サイズ
@@ -47,7 +49,7 @@ export const Progress = (props: { time: any; color: string }) => {
 export function Playing() {
 	const [time, setTime] = useState(60);
 	const [preview, setPreview] = useState(false);
-	const [prompt, setPrompt] = useState();
+	const [prompt, setPrompt] = useState<{ base: BrochureProps; expand: BrochurePropsExpand }>();
 	const primaryColor = '#0369A1';
 	useEffect(() => {
 		const interval = setInterval(() => {
@@ -68,7 +70,14 @@ export function Playing() {
 		})
 			.then((response) => response.json())
 			.then((data) => {
-				setPrompt(data);
+				const prompt_result = {
+					base: data as BrochureProps,
+					expand: {
+						members: ['メンバー1', 'メンバー2', 'メンバー3'],
+						image_url: null,
+					},
+				};
+				setPrompt(prompt_result);
 				setPreview(true);
 			})
 			.catch((error) => {
@@ -100,7 +109,7 @@ export function Playing() {
 									</div>
 									<div className="w-1/3"></div>
 								</div>
-								<div className="w-full flex items-center justify-center">{prompt}</div>
+								<div className="w-full flex items-center justify-center">{prompt ? <Brochure {...prompt} /> : <div>データがありません</div>}</div>
 							</>
 						) : (
 							<div className="w-full h-full flex items-center justify-center">
@@ -121,7 +130,6 @@ export function Playing() {
 													.padStart(2, '0')}
 												:{time % 60 < 10 ? `0${time % 60}` : time % 60}
 											</div>
-											<button onClick={changePreview}>デバッグ用</button>
 										</div>
 									</div>
 									<div className="w-full lg:w-1/2 p-6 flex items-center justify-center">
