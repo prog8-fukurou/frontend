@@ -1,12 +1,15 @@
-import { Button } from "./components/ui/button";
+import { WebSocketProvider } from "./WebSocketContext";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { AppRoutes } from "@/routes";
+
+const router = createBrowserRouter(AppRoutes);
 
 const App = () => {
   return (
     <>
-      <div className="container my-20">
-        <h1 className="text-2xl mb-4">Hello World!</h1>
-        <Button>Click me!</Button>
-      </div>
+      <WebSocketProvider>
+        <RouterProvider router={router} />
+      </WebSocketProvider>
     </>
   );
 };
